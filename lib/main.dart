@@ -1,120 +1,21 @@
+import 'package:fizika_flutter/ui/home.page.dart';
+import 'package:fizika_flutter/ui/main.page.dart';
 import 'package:flutter/material.dart';
-import 'MainPage.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(App());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
-
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: 'Montserrat'
-      ),
-      home: MyHomePage(),
+      theme: ThemeData(fontFamily: 'Montserrat'),
       routes: {
-        '/MainPage' : (context)=>MainPage(),
+        HomePage.ROUTE_NAME: (context) => HomePage(),
+        MainPage.ROUTE_NAME: (context) => MainPage(),
       },
     );
   }
 }
-
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xffff6a65),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.end,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(
-            padding:  EdgeInsets.only(left: 30),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Container(
-                  child: Text("Spletni učbenik", style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 40,
-                    fontWeight: FontWeight.w900,
-                    height: 1.2
-                  ),),
-                ),
-                Container(
-                  child: Text("za fiziko", style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 35,
-                    fontWeight: FontWeight.w900,
-                    height: 1.2
-                  ),),
-                ),
-                Container(
-                  child: Text("z rešenimi vajami", style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w100,
-                      height: 1.2
-                  ),),
-                  margin: EdgeInsets.only(bottom: 110),
-                )
-              ],
-            ),
-          ),
-          Stack(
-            children: <Widget>[
-               Container(
-                 alignment: Alignment.bottomCenter,
-                 height: MediaQuery.of(context).size.height*0.6,
-                 width: MediaQuery.of(context).size.width,
-                 decoration: BoxDecoration(
-                   image: DecorationImage(
-                     image: AssetImage('assets/image/3733781-removebg.png'),
-                     fit: BoxFit.cover,
-                   ),
-                 ),
-               ),
-              Positioned(
-                bottom: 30,
-                left: 20,
-                right: 20,
-                child: Center(
-                  child: InkWell(
-                    onTap: (){openMainPage();},
-                    child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 70, vertical: 15),
-                      margin: EdgeInsets.only(bottom: 5),
-                       decoration: BoxDecoration(
-                         color: Colors.white,
-                         borderRadius: BorderRadius.all(Radius.circular(40)),
-                       ),
-                      child: Text("Nadaljuj v učbenik", style: TextStyle(
-                        fontFamily: "Montserrat",
-                        fontWeight: FontWeight.w700,
-                        fontSize: 18
-                      ),),
-                    ),
-                  ),
-                ),
-              )
-            ],
-          )
-        ],
-      ),
-    );
-  }
-  void openMainPage()
-  {
-     Navigator.pushNamed(context, '/MainPage');
-  }
-}
-
