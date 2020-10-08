@@ -25,31 +25,11 @@ class _mainPageState extends State<mainPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
            children: <Widget>[
-             Row(
-               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-               children: <Widget> [
-                 Text("Pozdravljen nadobudnež", style: TextStyle(
-                   fontSize: 20,
-                   color: Color(0xffff5954),
-                   fontWeight: FontWeight.w700
-                 ),),
-                 Container(
-                   height: 40,
-                   width: 40,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                        image: AssetImage('assets/image/logo.png')
-                      )
-                    ),
-                 )
-               ],
-             ),
-             SizedBox(height: 25,),
-             Text("Katero snov\nbi rad ponavljal\ndanes?", style: TextStyle(
+             SizedBox(height: 10,),
+             Text("Znanje katerega\nletnika bi rad\nizboljšal danes?", style: TextStyle(
                fontSize: 35,
                height: 1.2,
-               fontWeight: FontWeight.w700,
+               fontWeight: FontWeight.w900,
                fontFamily: 'Montserrat'
              ),),
              SizedBox(
@@ -65,9 +45,9 @@ class _mainPageState extends State<mainPage> {
                        child: Column(
                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                          children: <Widget>[
-                           courseWidget('prof. Zupan', '1. letnik', 'img1', Color(0xffff5954), Color(0xffff6a65)),
+                           courseWidget('prof. Zupan', '1. letnik', 'learn', Color(0xffbdcddfa), Color(0xffcedaff)),
                            SizedBox(height: 20),
-                           courseWidget('prof. Zupan', '2. letnik', 'img1', Color(0xffe9eefa), Colors.white),
+                           courseWidget('prof. Zupan', '2. letnik', 'learn', Color(0xffe9eefa), Colors.white),
                          ],
                        ),
                      ),
@@ -77,9 +57,9 @@ class _mainPageState extends State<mainPage> {
                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
                          children: <Widget>[
                            SizedBox(height: 50,),
-                           courseWidget('prof. Zupan', '3. letnik', 'img1', Color(0xffe9eefa), Colors.white),
+                           courseWidget('prof. Zupan', '3. letnik', 'learn', Color(0xffe9eefa), Colors.white),
                            SizedBox(height: 20),
-                           courseWidget('prof. Zupan', 'Priprave na maturo', 'img1', Color(0xffbdcddfa), Color(0xffcedaff)),
+                           courseWidget('prof. Zupan', 'Priprave na maturo', 'learn', Color(0xffbdcddfa), Color(0xffcedaff)),
                          ],
                        ),
                      )
@@ -92,13 +72,13 @@ class _mainPageState extends State<mainPage> {
       ),
     );
   }
-  Container courseWidget(String professor, String letnik, String img, Color categoryColor, Color bgColor)
+  Container courseWidget(String professor, String letnik, String image, Color categoryColor, Color bgColor)
   {
      return Container(
        padding: EdgeInsets.only(top: 20, right: 20, left: 20, bottom: 10),
        decoration: BoxDecoration(
          color: bgColor,
-         borderRadius: BorderRadius.all(Radius.circular(20))
+         borderRadius: BorderRadius.all(Radius.circular(10))
        ),
        child: InkWell(
          onTap: (){},
@@ -106,10 +86,10 @@ class _mainPageState extends State<mainPage> {
            crossAxisAlignment: CrossAxisAlignment.start,
            children: <Widget>[
               Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.all(5),
                 decoration: BoxDecoration(
                   color: categoryColor,
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                  borderRadius: BorderRadius.all(Radius.circular(5)),
                 ),
                 child: Text('$professor', style: TextStyle(
                   color: (categoryColor == Color(0xffe9eefa) ? Color(0xff2657ce) : Colors.white),
@@ -125,12 +105,12 @@ class _mainPageState extends State<mainPage> {
              ),),
              SizedBox(height: 10,),
              Hero(
-               tag: '$img',
+               tag: '$image',
                child: Container(
                  height: 80,
                  decoration: BoxDecoration(
                    image: DecorationImage(
-                     image: AssetImage('assets/image/learning.svg')
+                     image: AssetImage('assets/image/$image.png')
                    )
                  ),
                ),
