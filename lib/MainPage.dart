@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -109,9 +110,9 @@ class _mainPageState extends State<mainPage> {
                child: Container(
                  height: 80,
                  decoration: BoxDecoration(
-                   image: DecorationImage(
-                     image: AssetImage('assets/image/$image.png')
-                   )
+                     image: DecorationImage(
+                         image: AssetImage('assets/image/$image.png')
+                     )
                  ),
                ),
              )
